@@ -1,0 +1,24 @@
+diff -aurN oiio-Release-1.5.15.orig/src/libOpenImageIO/CMakeLists.txt oiio-Release-1.5.15/src/libOpenImageIO/CMakeLists.txt
+--- oiio-Release-1.5.15.orig/src/libOpenImageIO/CMakeLists.txt	2015-05-12 04:46:40.000000000 +0200
++++ oiio-Release-1.5.15/src/libOpenImageIO/CMakeLists.txt	2015-05-14 20:52:12.000000000 +0200
+@@ -246,7 +246,7 @@
+     target_link_libraries (OpenImageIO ${FREETYPE_LIBRARIES})
+ endif ()
+ 
+-
++target_link_libraries (OpenImageIO dl)
+ 
+ if (WIN32)
+     target_link_libraries (OpenImageIO psapi.lib)
+diff -aurN oiio-Release-1.5.15.orig/src/libutil/CMakeLists.txt oiio-Release-1.5.15/src/libutil/CMakeLists.txt
+--- oiio-Release-1.5.15.orig/src/libutil/CMakeLists.txt	2015-05-12 04:46:40.000000000 +0200
++++ oiio-Release-1.5.15/src/libutil/CMakeLists.txt	2015-05-14 20:53:00.000000000 +0200
+@@ -12,6 +12,8 @@
+ target_link_libraries (OpenImageIO_Util
+                            ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
+                            ${Boost_LIBRARIES})
++target_link_libraries (OpenImageIO_Util dl)
++
+ if (WIN32)
+     target_link_libraries (OpenImageIO_Util psapi.lib)
+ endif ()
